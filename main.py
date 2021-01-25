@@ -11,7 +11,7 @@ def main():
     while True:
         curr_datetime = datetime.datetime.now()
         print("\tcount: {}\trunning: {}".format(count, curr_datetime))
-        time.sleep(1)
+        time.sleep(2)
         count += 1
 
 
