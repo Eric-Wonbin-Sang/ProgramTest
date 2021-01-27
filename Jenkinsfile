@@ -18,7 +18,7 @@ pipeline {
                     sh 'python -m py_compile main.py'
                     //This stash step saves the Python source code and compiled byte code files from the sources
                     //workspace directory for use in later stages.
-                    stash(name: 'compiled-results', includes: '*.py*')
+                    stash(name: 'compiled-results', includes: 'sources/*.py*')
                 }
         }
         stage('Deliver') {
