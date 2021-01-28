@@ -6,10 +6,10 @@ pipeline {
                 docker {
                     image 'python:3.5.1'
                 }
-                steps {
-                    sh 'python -m py_compile sources/main.py'
-                    stash(name: 'compiled-results', includes: 'sources/main.py')
-                }
+            }
+            steps {
+                sh 'python -m py_compile sources/main.py'
+                stash(name: 'compiled-results', includes: 'sources/main.py')
             }
         }
         stage('Deliver') {
