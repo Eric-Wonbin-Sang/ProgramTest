@@ -28,6 +28,14 @@ pipeline {
                 sh 'python --version'
                 sh 'python main.py'
             }
+
+            post {
+                success {
+                    archiveArtifacts "${env.BUILD_ID}/sources/dist/main"
+                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
+                    sh 'python --version'
+                }
+            }
         }
     }
 }
