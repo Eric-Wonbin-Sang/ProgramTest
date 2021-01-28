@@ -23,6 +23,7 @@ pipeline {
                 dir(path: env.BUILD_ID) {
                     unstash(name: 'compiled-results')
                 }
+                sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F main.py'"
 
                 sh 'python --version'
                 sh 'python main.py'
