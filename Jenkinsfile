@@ -50,8 +50,8 @@ pipeline {
                     //through the Jenkins interface.
                     archiveArtifacts "${env.BUILD_ID}/sources/dist/main"
                      //sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
-                    sh "docker run --rm -v ${VOLUME} ${IMAGE}"
-                    //sh "python src/main.py"
+                    sh "docker run --rm -v -i ${VOLUME} ${IMAGE}"
+                    sh "python src/main.py"
                 }
             }
         }
