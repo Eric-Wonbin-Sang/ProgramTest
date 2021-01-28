@@ -22,6 +22,7 @@ pipeline {
             steps {
                 dir(path: env.BUILD_ID) {
                     unstash(name: 'compiled-results')
+                }
 
                 sh 'python --version'
                 sh 'python main.py'
